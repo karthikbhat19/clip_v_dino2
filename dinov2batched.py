@@ -43,10 +43,11 @@ for i in range(0, len(os.listdir(image_folder)), batch_size):
     if i == 2:
         break
 
-# pdb.set_trace()
+# pdb.set_trace() 
 # Compare outputs of the original model and traced model
 for outputs in all_outputs:
     last_hidden_states = outputs.last_hidden_state
+    image_features1 = last_hidden_states.mean(dim=1)
 
     # We have to force return_dict=False for tracing
     model.config.return_dict = False
@@ -64,5 +65,6 @@ for outputs in all_outputs:
     # and if this is small, their outputs closely match, validating the accuracy of the tracing process
     print((last_hidden_states - traced_outputs[0]).abs().max())
 
-    print("Shape of the output tensor:", traced_outputs[0].shape)
-    print("Raw output tensor values:", traced_outputs[0])
+    print("Shape of image feature dimension: ", image_features1.shape)
+    print("Shape of the output tensor: ", traced_outputs[0].shape)
+    print("Raw output tensor values: ", traced_outputs[0])
