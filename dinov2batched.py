@@ -17,8 +17,11 @@ image_folder = os.path.join(os.getcwd(), image_folder_relative)
 # Set the desired batch size
 batch_size = 1
 
-# List to store processed outputs
+# List to store processed outputs before extracting the hidden state
 all_outputs = []
+
+# List to store final hidden states
+final_outputs = []
 
 # Iterate through images in batches
 for i in range(0, len(os.listdir(image_folder)), batch_size):
@@ -48,7 +51,8 @@ for i in range(0, len(os.listdir(image_folder)), batch_size):
 for outputs in all_outputs:
     last_hidden_states = outputs.last_hidden_state
     image_features1 = last_hidden_states.mean(dim=1)
-
+    final_outputs.append(image_features1)
+    
     # We have to force return_dict=False for tracing
     model.config.return_dict = False
 
