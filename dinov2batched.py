@@ -14,14 +14,17 @@ image_folder_relative = "Images"
 image_folder = os.path.join(os.getcwd(), image_folder_relative)
 # For my own image folder, should be: C:\Users\Daniel\OneDrive\Desktop\MS\CSE 290D\Images
 
-# Set the desired batch size
+# Set the desired batch size. CURRENTLY ONLY SUPPORTING 1 AT A TIME
+# If you want to increase the batch size, change how we add the images to the dictionary
 batch_size = 1
 
-# List to store processed outputs before extracting the hidden state
-all_outputs = []
+# Dict to store processed outputs before extracting the hidden state
+# Key: Image string
+# Value: model inference on image
+all_outputs = {}
 
-# List to store final hidden states
-final_outputs = []
+# Dict to store final hidden states
+final_outputs = {}
 
 # Iterate through images in batches
 for i in range(0, len(os.listdir(image_folder)), batch_size):
@@ -31,7 +34,8 @@ for i in range(0, len(os.listdir(image_folder)), batch_size):
     for j in range(batch_size):
         idx = i + j
         if idx < len(os.listdir(image_folder)):
-            image_path = os.path.join(image_folder, os.listdir(image_folder)[idx])
+            image_str = os.listdir(image_folder)[idx]
+            image_path = os.path.join(image_folder, image_str)
             opened_image = Image.open(image_path)
             batch_images.append(opened_image)
 
@@ -42,33 +46,12 @@ for i in range(0, len(os.listdir(image_folder)), batch_size):
     outputs = model(**inputs)
 
     # Store the output for later analysis or processing
-    all_outputs.append(outputs)
-    if i == 2:
-        break
+    all_outputs[image_str] = outputs
 
-# pdb.set_trace() 
 # Compare outputs of the original model and traced model
-for outputs in all_outputs:
-    last_hidden_states = outputs.last_hidden_state
-    image_features1 = last_hidden_states.mean(dim=1)
-    final_outputs.append(image_features1)
-    
-    # We have to force return_dict=False for tracing
-    model.config.return_dict = False
-
-    # Indicates that this block code doesn't track gradients, which is typical when performing
-    # inferences or evaluating a model that doesn't need to compute gradients for backpropagation
+for outputs in all_outputs.items():
     with torch.no_grad():
-        # Create a traced version of the original model, which improves the efficiency of model deployment,
-        # because traced models can be more lightweight and offer faster inference performances
-        traced_model = torch.jit.trace(model, [inputs.pixel_values])
-        # Use the traced model to perform inference on the input tensor and store the output in traced_outputs
-        traced_outputs = traced_model(inputs.pixel_values)
-
-    # Calculates the maximum absolute difference between the original model's output and the traced model's output,
-    # and if this is small, their outputs closely match, validating the accuracy of the tracing process
-    print((last_hidden_states - traced_outputs[0]).abs().max())
-
-    print("Shape of image feature dimension: ", image_features1.shape)
-    print("Shape of the output tensor: ", traced_outputs[0].shape)
-    print("Raw output tensor values: ", traced_outputs[0])
+        last_hidden_states = outputs[1].last_hidden_state
+        image_features1 = last_hidden_states.mean(dim=1)
+        final_outputs[outputs[0]] = image_features1
+        
