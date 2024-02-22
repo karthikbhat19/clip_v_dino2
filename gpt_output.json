@@ -1,0 +1,93 @@
+[
+    {
+        "Failure Type: Lack of attention to detail": "The embedding fails to distinguish between specific details in the images, such as different hairstyles, colors of clothing, or accessories.",
+        "Failure Type: Lack of contextual understanding": "The embedding does not take into account the context of the image, leading to similar embeddings for images with different settings or scenarios.",
+        "Failure Type: Insensitivity to facial expressions": "The embedding does not adequately capture the emotions or expressions of the individuals in the images, resulting in similar embeddings for images with varying levels of enthusiasm or happiness.",
+        "Failure Type: Generalization of concepts": "The embedding tends to generalize similar concepts in images, leading to similar embeddings for images that have distinct themes or subjects.",
+        "Failure Type: Disregard for spatial relationships": "The embedding does not consider the spatial relationships between objects or people in the images, causing similar embeddings for images with different spatial arrangements or compositions."
+    },
+    {
+        "Incorrect object identification": "Failure to distinguish between different objects in the scene",
+        "Description": "The embeddings fail to differentiate between a man in construction gear and a group of men changing the shells on a cannon."
+    },
+    {
+        "Similarity in Background Scenery": "Different captions with similar background of mountains are encoded similarly.",
+        "Similarity in Activities": "Different captions depicting different activities are encoded similarly.",
+        "Failure to capture Key Visual Differences": "Important visual differences in the images are not adequately captured in the embeddings leading to similar encodings."
+    },
+    {
+        "Failure Type: Lack of Object Specificity": "Different objects or actions are not distinguished in the embeddings",
+        "Failure Type: Lack of Contextual Understanding": "The embeddings do not capture the contextual differences between the captions",
+        "Failure Type: Lack of Spatial Awareness": "Spatial relationships between objects or individuals in the image are not properly encoded in the embeddings",
+        "Failure Type: Lack of Temporal Understanding": "Temporal aspects of the actions or events in the image are not reflected in the embeddings",
+        "Failure Type: Lack of Emotional Recognition": "Emotions or intentions of the individuals in the image are not adequately represented in the embeddings",
+        "Failure Type: Lack of Scene Interpretation": "The embeddings do not accurately interpret the overall scene or setting depicted in the image"
+    },
+    {
+        "Failure Type: Lack of attention to fine visual details": "Captions with different clothing colors, surroundings, or objects are encoded similarly.",
+        "Failure Type: Ignoring spatial relationships": "Images with people sitting next to each other or objects in different positions are encoded similarly.",
+        "Failure Type: Oversimplified representation of concepts": "Images with complex actions or scenarios are encoded similarly, even when they have distinct differences in activities.",
+        "Failure Type: Lack of understanding context": "Images with different social interactions or settings are encoded similarly, regardless of the specific context.",
+        "Failure Type: Disregard for facial expressions": "Images with people expressing different emotions or facial features are encoded similarly.",
+        "Failure Type: Lack of variety in poses and gestures": "Images with different body language or gestures are encoded similarly, leading to confusion in the encoded representation."
+    },
+    {
+        "Overgeneralization": "The embedding model fails to capture the specific details of the scene (e.g., girl vs boy, raining vs sunny weather).",
+        "Lack of Context": "The embedding model ignores the contextual information provided in the main caption that distinguishes the scene (e.g., girl walking in a puddle vs boy playing in a fountain).",
+        "Failure to Capture Action": "The embedding model generates similar embeddings for images with different actions (e.g., running vs jumping vs sitting).",
+        "Absence of Environment Details": "The embedding model overlooks environmental details crucial for visual interpretation (e.g., grassy park vs flooded street vs water fountain).",
+        "Ignoring Color and Clothing": "The embedding model fails to differentiate based on color and clothing details present in the images (e.g., green dress vs red skirt, blue striped shirt vs orange dress)."
+    },
+    {
+        "Failure Type: Clothing color and style confusion": "The embedding model fails to differentiate between captions where people are wearing different colored and styled clothing.",
+        "Failure Type: Activity confusion": "The embedding model fails to capture the difference in activities being performed in the images.",
+        "Failure Type: Different objects in hand confusion": "The embedding model does not distinguish between captions where different objects are being held by individuals in the images.",
+        "Failure Type: Hair and facial features confusion": "The embedding model fails to encode the differences in hair color, style, and facial features of individuals in the images.",
+        "Failure Type: Pet confusion": "The embedding model confuses captions where different types and colors of pets are present in the images.",
+        "Failure Type: Background confusion": "The embedding model does not differentiate between captions with different background settings in the images."
+    },
+    {
+        "Similar appearance confusion": "The embedding model is unable to distinguish between individuals with similar physical appearances or clothing.",
+        "Misinterpreting actions": "The embedding model fails to differentiate between actions that may appear similar but have different contexts or intentions.",
+        "Lack of context understanding": "The embedding model struggles to understand the context of the scenes or relationships between individuals in the images.",
+        "Ignoring facial expressions": "The embedding model does not consider the facial expressions or emotions portrayed in the images, leading to incorrect similarity assessments.",
+        "Missing important objects": "The embedding model overlooks key objects or elements in the scene that would help differentiate between images.",
+        "Overreliance on colors or clothing": "The embedding model places too much emphasis on colors or clothing styles as a determining factor for similarity, leading to incorrect associations."
+    },
+    {
+        "Failure Type 1 - Lack of Attention to Detail": "Captions describe different visual elements or actions, but are encoded similarly",
+        "Failure Type 2 - Ignoring Context": "Captions with different contexts or scenarios are encoded similarly",
+        "Failure Type 3 - Lack of Spatial Understanding": "Captions with different spatial arrangements or interactions are encoded similarly",
+        "Failure Type 4 - Ignoring Scale and Proportions": "Captions with different scale or proportions of objects are encoded similarly",
+        "Failure Type 5 - Simplifying Complexity": "Captions with complex scenes or relationships are encoded similarly"
+    },
+    {
+        "Failure Type: Lack of Semantic Understanding": "The embedding fails to differentiate between images with different activities or scenes, despite significant visual differences.",
+        "Failure Type: Lack of Object Recognition": "The embedding fails to distinguish between images with different objects or subjects, even when they are visually distinct.",
+        "Failure Type: Lack of Context Awareness": "The embedding fails to capture the context of the scene or activity, leading to similar representations for diverse visual content.",
+        "Failure Type: Lack of Spatial Relationships": "The embedding fails to encode the spatial relationships between objects or subjects in the image, resulting in similar representations for visually dissimilar images.",
+        "Failure Type: Lack of Attention to Detail": "The embedding lacks the ability to differentiate based on subtle details or attributes in the image, leading to ambiguous representations."
+    },
+    {
+        "Similar images with different colors": "Failure: Fails to distinguish between images with different color schemes",
+        "Objects in different positions": "Failure: Fails to differentiate between images with objects in different positions",
+        "Different actions by the same object": "Failure: Fails to distinguish between images with the same object performing different actions",
+        "Different backgrounds": "Failure: Fails to differentiate between images with different backgrounds",
+        "Different clothing styles": "Failure: Fails to distinguish between images with subjects wearing different styles of clothing"
+    },
+    {
+        "Failure Type 1": "Differentiating between people and animals",
+        "Failure Type 2": "Failure to distinguish between different environments (e.g., rocky beach vs. rocky mountain)",
+        "Failure Type 3": "Not capturing the action or movement in the scene (e.g., climbing vs. hiking vs. running)",
+        "Failure Type 4": "Ignoring important objects or props in the scene (e.g., backpacks, helmets, bikes)",
+        "Failure Type 5": "Lack of attention to colors or specific details (e.g., white dog vs. brown dog)"
+    },
+    {
+        "Ambiguity in colors": "The embedding fails to distinguish between different colored clothing items such as a white t-shirt and a yellow shirt.",
+        "Lack of spatial awareness": "The embedding fails to recognize the spatial relationship between different objects, such as a girl climbing on playground equipment versus jumping into water.",
+        "Failure to capture actions": "The embedding fails to differentiate between different dynamic actions, such as bouncing on a trampoline versus jumping out of a swing.",
+        "Confusion in objects": "The embedding fails to differentiate between different objects, such as playground equipment and a trampoline.",
+        "Inability to identify age groups": "The embedding fails to distinguish between children of different ages, such as a young girl versus a little blonde girl.",
+        "Failure in identifying context": "The embedding fails to capture the overall context of the scene, such as people sitting below a concrete structure versus sitting in front of a fence looking at mountains."
+    }
+]
